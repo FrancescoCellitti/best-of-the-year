@@ -7,6 +7,7 @@ import org.lessons.java.spring.best_of_the_year.Movie;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class MoviesController {
@@ -16,7 +17,7 @@ public class MoviesController {
         List<Movie> movies = getBestMovies();
         model.addAttribute("movies", movies);
         return "FilmsPage";
-        }
+    }
 
     private List<Movie> getBestMovies() {
         List<Movie> movies = new ArrayList<>();
@@ -28,6 +29,25 @@ public class MoviesController {
 
         return movies;
     }
-}
 
-  
+    public Movie getMovieById(int id) {
+        List<Movie> movies = getBestMovies();
+        for (Movie movie : movies) {
+            if (movie.getId() == id) {
+                return movie;
+            }
+        }
+        return null;
+    }
+    
+     @GetMapping("/movies/{id}")
+    public String movieDetails(@PathVariable int id, Model model) {
+        Movie movie = getMovieById(id);
+        if (movie != null) {
+            model.addAttribute("movie", movie);
+            return "MovieDetail";
+        } else {
+            return "redirect:/movies";
+        }
+    }
+}

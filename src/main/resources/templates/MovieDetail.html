@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div>
+            <h1>Il Film</h1>
+            <div>
+                <h2 th:text="${movie.title}">Movie Title</h2>
+                <p><strong>Director:</strong> <span th:text="${movie.director}">Director Name</span></p>
+                <p><strong>Release Year:</strong> <span th:text="${movie.year}">2023</span></p>
+                <p><strong>Genre:</strong> <span th:text="${movie.genre}">Genre</span></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

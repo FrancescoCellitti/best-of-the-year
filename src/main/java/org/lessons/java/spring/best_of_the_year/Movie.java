@@ -20,6 +20,10 @@ public class Movie {
     }
     
     // Getter e Setter
+
+    public int getId() {
+        return id;
+    }
     
     public String getTitle() {
         return title;
