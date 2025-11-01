@@ -1,4 +1,4 @@
-package org.lessons.java.spring.best_of_the_year;
+package org.lessons.java.spring.best_of_the_year.Classes;
 
 public class Song {
     private int id;
@@ -14,6 +14,9 @@ public class Song {
         this.title = title;
         this.artist = artist;   
         this.genre = genre;
+    }
+    public int getId(){
+        return id;
     }
 
     public String getTitle(){

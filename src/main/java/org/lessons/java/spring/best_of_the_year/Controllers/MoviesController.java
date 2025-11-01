@@ -3,7 +3,7 @@ package org.lessons.java.spring.best_of_the_year.Controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.lessons.java.spring.best_of_the_year.Movie;
+import org.lessons.java.spring.best_of_the_year.Classes.Movie;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package org.lessons.java.spring.best_of_the_year;
+package org.lessons.java.spring.best_of_the_year.Classes;
 
 public class Movie {
     private int id;

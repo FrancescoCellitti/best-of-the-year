@@ -1,11 +1,13 @@
 package org.lessons.java.spring.best_of_the_year.Controllers;
 
+import org.lessons.java.spring.best_of_the_year.Classes.Song;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.lessons.java.spring.best_of_the_year.Song;
 
 @Controller
 public class SongController {
@@ -27,6 +29,29 @@ public class SongController {
         List<Song> songs = getBestSongs();
         model.addAttribute("songs", songs);
         return "SongsPages";
+    }
+
+    public Song getSongById(int id){
+        List<Song> songs = getBestSongs();
+        for(Song song : songs){
+            if (song.getId() == id){
+                return song;
+            }
+        }
+        return null;
+    }
+
+    @GetMapping("/songs/{id}")
+    public String songDetails(@PathVariable int id, Model model){
+        Song song = getSongById(id);
+        if (song != null){
+            model.addAttribute("song", song);
+            return "songDetails";
+        }
+        else{
+            return "redirect:/songs";
+        }
+
     }
    
 
